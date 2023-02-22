@@ -1,0 +1,18 @@
+ATTENTION: In this folder, you will copy the everything under the build directory from the React App project after you run "npm run build" in that project. (do not copy the build folder itself however)
+
+Then, when you run "firebase emulators:start" in this project, the server will deploy the react app with the Node server to the local environment at http://127.0.0.1:5000
+
+Visit that in your browser for live testing of the app. 
+
+You will need to have:
+
+Nodejs (includes npm)
+Firebase tools
+express
+path
+
+for now, but we will probably need more npm packages like mongodb later here.
+
+Please ask Corey if you have any questions about this process.
+
+The deployment to a live link will be handled by Corey for the sake of the Firebase subscription needs.
