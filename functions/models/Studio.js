@@ -34,7 +34,7 @@ const StudiosSchema = new mongoose.Schema({
         min:0,
         max:5
     },
-    dates:{
+    hours:{
         type: [String],
     },
     price:{

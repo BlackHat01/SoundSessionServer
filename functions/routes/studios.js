@@ -6,15 +6,16 @@ import{
     getStudio,
     getallStudio,
 } from "../controllers/studio.js";
+import { verifyAdmin } from "../utils/verifyToken.js";
 
 const router = express.Router();
 
 //create
-router.post("/", createStudio);
+router.post("/", verifyAdmin, createStudio);
 //update
-router.put("/:id", updateStudio);
+router.put("/:id",verifyAdmin, updateStudio);
 //delete
-router.delete("/:id", deleteStudio);
+router.delete("/:id",verifyAdmin, deleteStudio);
 //get
 router.get("/:id", getStudio);
 //getall

@@ -5,11 +5,13 @@ import express from "express";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import studiosRoute from "./routes/studios.js";
-import datesRoute from "./routes/dates.js";
+import timesRoute from "./routes/times.js";
+import cookieParser from "cookie-parser";
+
 const app = express();
 dotenv.config()
 const port = 8088;
-const time = 17.35;
+const time = 1_24_24;
 
 // // Create and deploy your first functions
 // // https://firebase.google.com/docs/functions/get-started
@@ -33,13 +35,13 @@ mongoose.connection.on("disconnected", ()=>{
 });
 
 //middleware
-
+app.use(cookieParser())
 app.use(express.json())
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/studios", studiosRoute);
-app.use("/api/dates", datesRoute);
+app.use("/api/times", timesRoute);
 
 app.use((err, req, res, next) =>{
     const errorStatus = err.status || 500
