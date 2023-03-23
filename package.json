@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "firebase": "^9.17.1",
+    "mongoose": "^7.0.2"
+  },
+  "devDependencies": {
+    "firebase-functions": "^4.2.1"
+  }
+}
