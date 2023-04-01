@@ -46,7 +46,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(8800, () => {
+app.listen(8080, () => {
   connect();
   console.log("Connected to backend.");
 });
