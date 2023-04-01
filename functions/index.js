@@ -34,6 +34,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/studios", studiosRoute);
 app.use("/api/times", timesRoute);
+app.use(express.static("../public"));
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
