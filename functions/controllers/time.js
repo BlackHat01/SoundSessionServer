@@ -33,6 +33,21 @@ export const updateTime = async(req,res, next) =>{
         next(err);
     };
 };
+export const updateTimeAvailability = async (req, res, next) => {
+    try {
+      await Time.updateOne(
+        { "Time._id": req.params.id },
+        {
+          $push: {
+            "Time.$.unavailableTimes": req.body.dates
+          },
+        }
+      );
+      res.status(200).json("Time status has been updated.");
+    } catch (err) {
+      next(err);
+    }
+  };
 
 export const deleteTime = async(req,res, next) =>{
     const studioId = req.params.studioid;
