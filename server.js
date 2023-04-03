@@ -1,12 +1,12 @@
+import express from "express";
 import dotenv from "dotenv"
 import mongoose from "mongoose";
-import express from "express";
+import cors from "cors";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
 import studiosRoute from "./routes/studios.js";
 import timesRoute from "./routes/times.js";
 import cookieParser from "cookie-parser";
-import cors from "cors";
 
 const app = express();
 dotenv.config();
@@ -33,7 +33,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/studios", studiosRoute);
 app.use("/api/times", timesRoute);
-app.use(express.static("../public"));
+app.use(express.static("./public"));
 
 app.use((err, req, res, next) => {
   const errorStatus = err.status || 500;
@@ -46,7 +46,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(8080, () => {
+app.listen(process.env.PORT,'0.0.0.0', () => {
   connect();
   console.log("Connected to backend.");
 });
