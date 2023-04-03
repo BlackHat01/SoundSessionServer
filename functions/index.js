@@ -1,6 +1,5 @@
 import dotenv from "dotenv"
 import mongoose from "mongoose";
-import firebasefunctions from "firebase-functions";
 import express from "express";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";

@@ -1,13 +1,8 @@
 {
   "name": "functions",
-  "description": "Cloud Functions for Firebase",
+  "description": "SoundSession Web App",
   "scripts": {
-    "serve": "firebase emulators:start --only functions",
-    "shell": "firebase functions:shell",
-    "start": "npm run shell",
-    "start2": "nodemon index.js",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
+    "start": "nodemon index.js"
   },
   "engines": {
     "node": "18"
@@ -17,15 +12,13 @@
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.3",
-    "firebase-admin": "^11.5.0",
-    "firebase-functions": "^4.2.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.0.3",
-    "nodemon": "^2.0.21"
+    "nodemon": "^2.0.21",
+    "yarn": "^1.22.19"
   },
   "type": "module",
   "devDependencies": {
-    "firebase-functions-test": "^3.0.0"
   },
   "private": true
 }
