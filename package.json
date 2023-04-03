@@ -2,7 +2,8 @@
   "name": "soundsession",
   "description": "SoundSession Web App",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "start2": "nodemon server.js"
   },
   "engines": {
     "node": "18"
