@@ -1,56 +1,56 @@
-import Studio from "../models/Studio.js";
+import Artist from "../models/Artist.js";
 import Time from "../models/Time.js";
 
-export const createStudio = async(req,res, next) =>{
-    const newStudio = new Studio(req.body)
+export const createArtist = async(req,res, next) =>{
+    const newArtist = new Artist(req.body)
 
     try{
-        const savedStudio = await newStudio.save();
-        res.status(200).json(savedStudio);
+        const savedArtist = await newArtist.save();
+        res.status(200).json(savedArtist);
     }catch(err){
         next(err);
     };
 }
 
-export const updateStudio = async(req,res, next) =>{
+export const updateArtist = async(req,res, next) =>{
     try{
-        const updatedStudio = await Studio.findByIdAndUpdate(
+        const updatedArtist = await Artist.findByIdAndUpdate(
             req.params.id, 
             { $set: req.body}, 
             { new:true}
         );
-        res.status(200).json(updatedStudio)
+        res.status(200).json(updatedArtist)
     }catch(err){
         next(err);
     };
 }
 
-export const deleteStudio = async(req,res, next) =>{
+export const deleteArtist = async(req,res, next) =>{
     try{
-        await Studio.findByIdAndDelete(
+        await Artist.findByIdAndDelete(
             req.params.id
         );
-        res.status(200).json("Studio Deleted")
+        res.status(200).json("Artist Deleted")
     }catch(err){
         next(err);
     };
 }
 
-export const getStudio = async(req,res, next) =>{
+export const getArtist = async(req,res, next) =>{
     try{
-        const studio = await Studio.findById(
+        const Artist = await Artist.findById(
             req.params.id
         );
-        res.status(200).json(studio)
+        res.status(200).json(Artist)
     }catch(err){
         next(err);
     };
 }
 
-export const getallStudio = async(req,res, next) =>{
+export const getallArtist = async(req,res, next) =>{
     try{
-        const studios = await Studio.find();
-        res.status(200).json(studios)
+        const Artists = await Artist.find();
+        res.status(200).json(Artists)
     }catch(err){
         next(err);
     };
@@ -60,7 +60,7 @@ export const countByType = async(req,res, next) =>{
     const types = req.query.types.split(",")
     try{
         const list = await Promise.all(types.map(type=>{
-            return Studio.countDocuments({type:type})
+            return Artist.countDocuments({type:type})
         }))
         res.status(200).json(list)
     }catch(err){
@@ -89,11 +89,11 @@ export const countByEngineerType = async (req, res, next) => {
     }
   };
   
-  export const getStudioTimes = async (req, res, next) => {
+  export const getArtistTimes = async (req, res, next) => {
     try {
-      const studio = await Studio.findById(req.params.id);
+      const Artist = await Artist.findById(req.params.id);
       const list = await Promise.all(
-        studio.times.map((time) => {
+        Artist.times.map((time) => {
           return Time.findById(time);
         })
       );
@@ -105,7 +105,7 @@ export const countByEngineerType = async (req, res, next) => {
 
   export const getFeatured = async (req, res, next) => {
     try {
-      const featured = await Studio.find({featured:true});
+      const featured = await Artist.find({featured:true});
       res.status(200).json(featured)
     } catch (err) {
       next(err);

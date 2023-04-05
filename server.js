@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import cors from "cors";
 import authRoute from "./routes/auth.js";
 import usersRoute from "./routes/users.js";
+import artistsRoute from "./routes/artists.js";
 import studiosRoute from "./routes/studios.js";
 import timesRoute from "./routes/times.js";
 import cookieParser from "cookie-parser";
@@ -30,6 +31,7 @@ app.use(cookieParser())
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
+app.use("/api/artists", artistsRoute);
 app.use("/api/users", usersRoute);
 app.use("/api/studios", studiosRoute);
 app.use("/api/times", timesRoute);

@@ -1,34 +1,33 @@
 import express from "express";
 import{
-    createStudio,
-    deleteStudio,
-    updateStudio,
-    getStudio,
-    getallStudio,
+    createArtist,
+    deleteArtist,
+    updateArtist,
+    getArtist,
+    getallArtist,
     countByType,
-    getStudioTimes,
+    getArtistTimes,
     getFeatured,
     countByEngineerType
-} from "../controllers/studio.js";
-import Studio from "../models/Studio.js";
+} from "../controllers/artist.js";
 import { verifyAdmin } from "../utils/verifyToken.js";
 const router = express.Router();
 
 //create
-router.post("/", verifyAdmin, createStudio);
+router.post("/", verifyAdmin, createArtist);
 //update
-router.put("/:id",verifyAdmin, updateStudio);
+router.put("/:id", verifyAdmin, updateArtist);
 //delete
-router.delete("/:id",verifyAdmin, deleteStudio);
+router.delete("/:id",verifyAdmin, deleteArtist);
 //get
-router.get("/find/:id", getStudio);
+router.get("/find/:id", getArtist);
 //getall
-router.get("/", getallStudio);
+router.get("/", getallArtist);
 
 // POTENTIALLY CHANGE THIS TO AUDIO ENGINEER TYPE
 router.get("/countByType", countByType);
 router.get("/countByEngineerType", countByEngineerType);
-router.get("/time/:id", getStudioTimes);
+router.get("/time/:id", getArtistTimes);
 router.get("/featured", getFeatured);
 
 
